@@ -19,9 +19,11 @@ fun main() {
     val hourPrint = ("%02d".format(hour))
 
     val minute = (seconds % 3600) / 60
+    val minutePrint = ("%02d".format(minute))
 
     val second = seconds % 60
     val secondPrint = ("%02d".format(second))
 
-    println("$hourPrint:$minute:$secondPrint")
+    val timePrint = "$hourPrint:$minutePrint:$secondPrint"
+    println(timePrint)
 }
