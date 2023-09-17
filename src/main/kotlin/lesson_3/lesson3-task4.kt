@@ -5,11 +5,11 @@ fun main() {
     var where = "E4"
     var numberMotion = 1
 
-    var message = "$whereFrom-$where;ход $numberMotion"
+    var message = "$whereFrom-$where;$numberMotion"
     println(message)
     numberMotion += 1
     whereFrom = "D2"
     where = "D3"
-    message = "$whereFrom-$where;ход $numberMotion"
+    message = "$whereFrom-$where;$numberMotion"
     println(message)
 }
