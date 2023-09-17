@@ -1,11 +1,12 @@
 package lesson_3
 
 fun main() {
-    var message = "D2-D4;0"
+    val message = "D2-D4;0"
+    val splittedString = message.split('-', ';')
 
-    val whereFrom = "D2"
-    val where = "D4"
-    val numberMotion = 0
+    val whereFrom = splittedString[0]
+    val where = splittedString[1]
+    val numberMotion = splittedString[2]
 
     println(whereFrom)
     println(where)
