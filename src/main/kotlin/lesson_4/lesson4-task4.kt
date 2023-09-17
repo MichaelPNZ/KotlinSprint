@@ -10,5 +10,6 @@ fun main() {
       Упражнения для спины: ${typeProgram == 0}
       Упражнения для пресса: ${typeProgram != 0}
     """.trimIndent()
+
     println(program)
 }
