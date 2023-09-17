@@ -8,17 +8,17 @@ fun main() {
     val volumeCargoTwo = 100
 
     println("Груз весом $weightCargoOne и объемом $volumeCargoOne соответствуем категории 'Average': ${
-        weightCargoOne >= minWeightAverage &&
-                weightCargoOne <= maxWeightAverage &&
-                volumeCargoOne < volumeAverage
+        weightCargoOne >= MIN_WEIGHT_AVERAGE &&
+                weightCargoOne <= MAX_WEIGHT_AVERAGE &&
+                volumeCargoOne < VOLUME_AVERAGE
     }")
     println("Груз весом $weightCargoTwo и объемом $volumeCargoTwo соответствуем категории 'Average': ${
-        weightCargoTwo >= minWeightAverage &&
-                weightCargoTwo <= maxWeightAverage &&
-                volumeCargoTwo < volumeAverage
+        weightCargoTwo >= MIN_WEIGHT_AVERAGE &&
+                weightCargoTwo <= MAX_WEIGHT_AVERAGE &&
+                volumeCargoTwo < VOLUME_AVERAGE
     }")
 }
 
-const val minWeightAverage = 35
-const val maxWeightAverage = 100
-const val volumeAverage = 100
+const val MIN_WEIGHT_AVERAGE = 35
+const val MAX_WEIGHT_AVERAGE = 100
+const val VOLUME_AVERAGE = 100
