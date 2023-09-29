@@ -10,16 +10,24 @@ fun main() {
     print("благоприятность метеоусловий: ")
     val  isClean = readLine().toBoolean()
 
-    var result = false
-
-    if ((isDamage == false) && (crewNumber in "55".toInt().."70".toInt()) && (wireBoxes >= 50) && (isClean == true || false)) {
-        result = true
-    }
-
-    if ((isDamage == true) && (crewNumber == 70) && (isClean == true) && (wireBoxes > 50)) {
-        result = true
-    }
+    val result = (
+            (isDamage == IS_DAMAGE)
+            && (crewNumber in MIN_CREW_NUMBER..MAX_CREW_NUMBER)
+            && (wireBoxes >= WIRE_BOXES)
+            && (isClean == IS_CLEAN || !IS_CLEAN)
+            )
+            || (
+            (isDamage == !IS_DAMAGE)
+            && (crewNumber == MAX_CREW_NUMBER)
+            && (isClean == IS_CLEAN)
+            && (wireBoxes > WIRE_BOXES)
+                    )
 
     println("Корабля может приступать к долгосрочному плаванию: $result")
 }
 
+const val IS_DAMAGE = false
+const val MIN_CREW_NUMBER = 55
+const val MAX_CREW_NUMBER = 70
+const val WIRE_BOXES = 50
+const val IS_CLEAN = true
