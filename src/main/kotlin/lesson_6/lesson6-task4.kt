@@ -10,14 +10,16 @@ fun main() {
         println("Введите свое число: ")
         val playerNumber = readLine()!!.toInt()
 
-        if (playerNumber == number) {
-            attempts = 0
-            println("Это была великолепная игра!")
-        } else if (attempts == 0) {
-            println("Неверно! Остальсь попыток: ${attempts}")
-            println("Было загадано число ${number}")
-        } else {
+        when {
+            playerNumber == number -> {
+                attempts = 0
+                println("Это была великолепная игра!")
+            }
+            attempts == 0 -> {
                 println("Неверно! Остальсь попыток: ${attempts}")
+                println("Было загадано число ${number}")
+            }
+            else -> println("Неверно! Остальсь попыток: ${attempts}")
         }
     }
 }
