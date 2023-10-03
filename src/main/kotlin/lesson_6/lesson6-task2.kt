@@ -3,7 +3,7 @@ package lesson_6
 fun main() {
 
     println("Введите количество секунд: ")
-    val seconds = readLine()!!.toInt()
+    val seconds = readln().toInt()
     var timer = seconds
 
     while (timer > 0) {
