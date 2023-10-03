@@ -10,14 +10,14 @@ fun main() {
         val result = readLine()!!.toInt()
         attempts--
 
-        if (result == (numberOne + numberTwo)) {
-            attempts = 0
-            println("Добро пожаловать!")
-        } else if (attempts == 0) {
-            println("Доступ запрещен")
-        } else {
-            println("Неверно. Осталось попыток: ${attempts}")
+        when {
+            result == (numberOne + numberTwo) -> {
+                attempts = 0
+                println("Добро пожаловать!")
+                }
+            attempts == 0 -> println("Доступ запрещен")
+            else -> println("Неверно. Осталось попыток: ${attempts}")
         }
     }
-
 }
+
