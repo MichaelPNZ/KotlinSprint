@@ -7,9 +7,9 @@ fun main() {
 
     println("Отгадайте два числа от 1 до 100")
     println("Введите первое число: ")
-    val firstNumber = readLine()!!.toInt()
+    val firstNumber = readln().toInt()
     println("Введите второе число: ")
-    val secondNumber = readLine()!!.toInt()
+    val secondNumber = readln().toInt()
     val winNumber = "Выигрышные числа: $firstRandomNumber и $secondRandomNumber"
 
     if ((firstNumber == firstRandomNumber) && (secondNumber == secondRandomNumber)) {
