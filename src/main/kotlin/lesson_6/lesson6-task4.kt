@@ -8,7 +8,7 @@ fun main() {
     while (attempts > 0) {
         attempts--
         println("Введите свое число: ")
-        val playerNumber = readLine()!!.toInt()
+        val playerNumber = readln().toInt()
 
         when {
             playerNumber == number -> {
