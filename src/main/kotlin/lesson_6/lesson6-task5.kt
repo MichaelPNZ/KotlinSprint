@@ -7,7 +7,7 @@ fun main() {
         val numberOne = (1..9).random()
         val numberTwo = (1..9).random()
         println("Докажи, что ты не бот! Реши пример: ${numberOne}+${numberTwo}=")
-        val result = readLine()!!.toInt()
+        val result = readln().toInt()
         attempts--
 
         when {
