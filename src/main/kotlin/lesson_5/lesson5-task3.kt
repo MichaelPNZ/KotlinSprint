@@ -11,7 +11,11 @@ fun main() {
     if (((firstNumber == FIRST_NUMBER) && (secondNumber == SECOND_NUMBER))
         || ((firstNumber == SECOND_NUMBER) && (secondNumber == FIRST_NUMBER))) {
         println("Поздравляем! Вы выиграли главный приз!")
-    } else if ((firstNumber == FIRST_NUMBER) || (secondNumber == SECOND_NUMBER)) {
+    } else if ((firstNumber == FIRST_NUMBER)
+        || (secondNumber == SECOND_NUMBER)
+        || (firstNumber == SECOND_NUMBER)
+        || (secondNumber == FIRST_NUMBER)
+        ) {
         println("Вы выиграли утешительный приз!")
         println(winNumber)
     } else {
