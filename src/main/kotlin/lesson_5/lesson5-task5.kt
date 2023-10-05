@@ -12,9 +12,13 @@ fun main() {
     val secondNumber = readln().toInt()
     val winNumber = "Выигрышные числа: $firstRandomNumber и $secondRandomNumber"
 
-    if ((firstNumber == firstRandomNumber) && (secondNumber == secondRandomNumber)) {
+    if ((firstNumber == firstRandomNumber) && (secondNumber == secondRandomNumber)
+        || (firstNumber == secondRandomNumber) && (secondNumber == firstRandomNumber)) {
         println("Поздравляем! Вы выиграли главный приз!")
-    } else if ((firstNumber == firstRandomNumber) || (secondNumber == secondRandomNumber)) {
+    } else if ((firstNumber == firstRandomNumber)
+        || (secondNumber == secondRandomNumber)
+        || (firstNumber == secondRandomNumber)
+        || (secondNumber == firstRandomNumber)) {
         println("Вы выиграли утешительный приз!")
         println(winNumber)
     } else {
