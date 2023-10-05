@@ -7,16 +7,16 @@ fun main() {
     var password = ""
 
     while (authorization == false) {
-        if (login == "" && password == "") {
+        if (login.isEmpty() && password.isEmpty()) {
             println("Создайте логин: ")
-            login = readLine().toString()
+            login = readln()
             println("Создайте пароль: ")
-            password = readLine().toString()
+            password = readln()
         } else {
             println("Введите логин: ")
-            val inputLogin = readLine().toString()
+            val inputLogin = readln()
             println("Введите пароль: ")
-            val inputPassword = readLine().toString()
+            val inputPassword = readln()
 
             if ((inputLogin == login) && (inputPassword == password)) {
                 authorization = true
