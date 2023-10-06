@@ -6,7 +6,7 @@ fun main() {
     var login = ""
     var password = ""
 
-    while (authorization == false) {
+    while (!authorization) {
         if (login.isEmpty() && password.isEmpty()) {
             println("Создайте логин: ")
             login = readln()
