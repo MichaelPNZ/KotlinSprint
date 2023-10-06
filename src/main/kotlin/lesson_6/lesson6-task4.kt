@@ -5,15 +5,14 @@ fun main() {
     var attempts = 5
     println("Угадайте число!")
 
-    while (attempts > 0) {
-        attempts--
+    while (attempts-- > 0) {
         println("Введите свое число: ")
         val playerNumber = readln().toInt()
 
         when {
             playerNumber == number -> {
-                attempts = 0
                 println("Это была великолепная игра!")
+                break
             }
             attempts == 0 -> {
                 println("Неверно! Остальсь попыток: ${attempts}")
