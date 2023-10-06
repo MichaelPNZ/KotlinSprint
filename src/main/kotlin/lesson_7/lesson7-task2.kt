@@ -3,7 +3,7 @@ package lesson_7
 fun main() {
     var authorization = false
 
-    while (authorization == false) {
+    while (!authorization) {
         val randomNumber = (1000..9999).random()
         println("Ваш код авторизации: ${randomNumber}")
         println("Введите полученный код: ")
