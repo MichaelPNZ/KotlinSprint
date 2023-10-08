@@ -9,12 +9,9 @@ fun main() {
         println("Введите полученный код: ")
         val code = readln().toInt()
 
-        when {
-            code == randomNumber -> {
-                println("Добра пожаловать!")
-                authorization = true
-            }
-            else -> println("Код введен неверно.")
-        }
+        if (code == randomNumber) {
+            println("Добра пожаловать!")
+            authorization = true
+        } else { println("Код введен неверно.") }
     }
 }
