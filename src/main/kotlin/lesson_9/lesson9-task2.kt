@@ -6,16 +6,11 @@ fun main() {
     println("Желаете добавить еще?")
     val answer = readln()
 
-   for (i in arrayOfIngredients) {
-       when {
-           answer.equals("нет", ignoreCase = true) -> break
-           else -> {
-               println("Какой ингредиент вы хотите добавить?")
+    if (answer.equals("нет", ignoreCase = true)) { println() }
+    else {
+        println("Какой ингредиент вы хотите добавить?")
                val newIngredient = readln()
                arrayOfIngredients.add(newIngredient)
                println("Теперь в рецепте есть следующие ингредиенты: ${arrayOfIngredients.joinToString()}")
-               break
-           }
-       }
-   }
+        }
 }
