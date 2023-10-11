@@ -8,7 +8,7 @@ fun main() {
 
    for (i in arrayOfIngredients) {
        when {
-           answer == "нет" -> break
+           answer.equals("нет", ignoreCase = true) -> break
            else -> {
                println("Какой ингредиент вы хотите добавить?")
                val newIngredient = readln()
