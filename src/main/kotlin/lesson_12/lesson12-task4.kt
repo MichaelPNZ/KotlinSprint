@@ -2,14 +2,6 @@ package lesson_12
 
 class Weather3(val temperatureOfDay: Int, val temperatureOfNight: Int, val isRain: Boolean = false, val pressure: Int) {
 
-//    constructor(
-//        temperatureOfDay: Int,
-//        temperatureOfNight: Int,
-//        isRain: Boolean,
-//        pressure: Int,
-//    ) : this(temperatureOfDay, temperatureOfNight, isRain, pressure) {
-//
-//    }
     init {
         println("температура днем: ${temperatureOfDay}, температура ночью: ${temperatureOfNight}, давление: ${pressure}, дождь: ${isRain}.")
     }
