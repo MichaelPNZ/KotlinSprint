@@ -1,14 +1,19 @@
 package lesson_12
 
-class Weather2(var temperatureOfDay: Int, var temperatureOfNight: Int, var isRain: Boolean, var pressure: Int) {
+class Weather2(_temperatureOfDay: Int, _temperatureOfNight: Int, _isRain: Boolean, _pressure: Int) {
+
+    var temperatureOfDay = _temperatureOfDay
+    var temperatureOfNight = _temperatureOfNight
+    var isRain = _isRain
+    var pressure = _pressure
 
     fun print() { println("температура днем: ${temperatureOfDay}, температура ночью: ${temperatureOfNight}, давление: ${pressure}, дождь: ${isRain}.") }
 }
 
 fun main() {
-    val weather = Weather2(temperatureOfDay = 28, temperatureOfNight = 15, isRain = false, pressure = 770)
+    val weather = Weather2(_temperatureOfDay = 28, _temperatureOfNight = 15, _isRain = false, _pressure = 770)
     weather.print()
 
-    val weather2 = Weather2(temperatureOfDay = 5, temperatureOfNight = -10, isRain = false, pressure = 750)
+    val weather2 = Weather2(_temperatureOfDay = 5, _temperatureOfNight = -10, _isRain = false, _pressure = 750)
     weather2.print()
 }
