@@ -5,18 +5,18 @@ class User (
     val login: String,
     var password: String,
     val email: String,
-    var bio: String,
+    var bio: String?,
 ) {
     fun printInformation() {
-        println("--------------------")
-        println("Проверка информации")
-        println(id)
-        println(login)
-        println(password)
-        println(email)
-        println(bio)
-        println("--------------------")
-        println()
+        println("""--------------------
+            |Проверка информации
+            |${id}
+            |${login}
+            |${password}
+            |${email}
+            |${bio}
+            |--------------------
+        """.trimMargin())
     }
 
     fun getInformationOnConsole() {
@@ -25,26 +25,20 @@ class User (
     }
 
     fun changedPassword() {
-        var isChanged = false
+        println("Введите пароль")
+        val passwordUser = readln()
 
-        while (!isChanged) {
-            println("Введите пароль")
-            val passwordUser = readln()
-            if (passwordUser == password) {
-                isChanged = true
-                println("Введите новый пароль")
-                val newPassword = readln()
-                password = newPassword
-                println("Пароль изменен на: ${newPassword}")
-            } else {
-                println("Пароль не верный")
-            }
+        if (passwordUser != password) { println("Пароль не верный") }
+
+        while (passwordUser == password) {
+            println("Введите новый пароль")
+            val newPassword = readln()
+            password = newPassword
+            println("Пароль изменен на: ${newPassword}")
         }
     }
 
-    fun getStringForUser(text: String) {
-        println("Уважаемый ,${login}, отправляем Вам информацию: ${text}")
-    }
+    fun getStringForUser(text: String) { println("Уважаемый ,${login}, отправляем Вам информацию: ${text}") }
 }
 
 fun main() {
@@ -53,12 +47,12 @@ fun main() {
         login = "qwerty",
         password = "asdfg",
         email = "zxcvb@gmail.com",
-        bio = "",
+        bio = null,
     )
 
     println("Заполни информацию о себе")
     user.getInformationOnConsole()
     user.changedPassword()
     user.printInformation()
-    user.getStringForUser(user.bio)
+    user.getStringForUser(user.bio ?: "")
 }
