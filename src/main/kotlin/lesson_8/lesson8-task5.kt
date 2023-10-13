@@ -1,14 +1,10 @@
 package lesson_8
 
 fun main() {
-    var arrayOfIngredients = arrayOf<String>()
     println("Сколько ингредиентов вы хотите добавить в рецепт?")
-    val count = readln().toInt()
-
-    for (i in 1..count) {
-        println("Введите название ингредиента №${i}:")
-        val ingredient = readln()
-        arrayOfIngredients += ingredient
+    val arrayOfIngredients = Array(readln().toInt()) {
+        println("Ингредиент: №${it + 1}")
+        readln()
     }
     println("Список ваших ингредиентов: ${ arrayOfIngredients.joinToString() }.")
 }
