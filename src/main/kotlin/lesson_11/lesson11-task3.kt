@@ -14,14 +14,16 @@ class Room(
     }
 
     fun testPrint() {
-        println("-------------------")
-        println(id)
-        println(coverRoom)
-        println(nameRoom)
-        println(participantList)
-        println(userName)
-        println(status)
-        println("-------------------")
+        println("""
+            |Проверка информации
+            |${id}
+            |${coverRoom}
+            |${nameRoom}
+            |${participantList}
+            |${userName}
+            |${status}
+            |-------------------
+        """.trimIndent())
     }
 }
 
