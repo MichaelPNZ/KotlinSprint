@@ -6,7 +6,7 @@ class User (
     val login: String,
     val password: String,
     val email: String,
-) {}
+)
 
 fun main() {
     val userOne = User(
@@ -22,13 +22,14 @@ fun main() {
         password = "hjklffhd",
         email = "nmvbcn@gmail.com",
     )
-    println(userOne.id)
-    println(userOne.login)
-    println(userOne.password)
-    println(userOne.email)
+    println("""${userOne.id}
+        |${userOne.login}
+        |${userOne.password}
+        |${userOne.email}""".trimMargin())
+
     println()
-    println(userTwo.id)
-    println(userTwo.login)
-    println(userTwo.password)
-    println(userTwo.email)
+    println("""${userTwo.id}
+        |${userTwo.login}
+        |${userTwo.password}
+        |${userTwo.email}""".trimMargin())
 }
