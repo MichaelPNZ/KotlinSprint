@@ -8,12 +8,11 @@ fun main() {
 }
 
 fun getRandomPassword(length: Int) : String {
-    val spacing = 0.toChar()
-    val char = 33.toChar()..47.toChar()
+    val char = '!'..'+'
     val number = 0..9
     var password = ""
     for (i in 1..length / 2) {
-        password += char.plus(spacing).random()
+        password += char.random()
         password += number.random()
     }
     return password
