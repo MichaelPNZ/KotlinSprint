@@ -7,7 +7,7 @@ fun main() {
     while (isContinue) {
         val (numberOne, numberTwo) = getRandomNumber()
 
-        if ((winner == 0) || (getAnswerPlayer() == "Да")) {
+        if ((winner == 0) || (getAnswerPlayer().equals("да", ignoreCase = true))) {
             getMove(numberOne, numberTwo)
             getWinner(numberOne, numberTwo)
             if (getWinGames(numberOne, numberTwo)) winner += 1
