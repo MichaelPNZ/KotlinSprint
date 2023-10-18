@@ -11,8 +11,7 @@ class Contact(
     val faceTime: String,
     val iCloud: String,
     val emailICloud: String,
-    val friendName: List<String>,
-    val friendNickName: List<String>,
+    val friendName: CloseContact,
 ) {
     fun printUserInfo() {
         println(image)
@@ -23,14 +22,14 @@ class Contact(
 
     fun printPhoneNumber() { forEach(phone, phoneNumber) }
 
-    fun printFaceTime() { println("${faceTime} ${iconButton[2]}  ${iconButton[1]}") }
+    fun printFaceTime() { println("${faceTime} ${iconButton[2]} ${iconButton[1]}") }
 
     fun printICloud() {
         println(iCloud)
         println(emailICloud)
     }
 
-    fun printFriends() { forEach(friendName, friendNickName) }
+    fun printFriends() { forEach(friendName) }
 
     fun forEach(string: List<String>, string2: List<String>) {
         var index = 0
@@ -40,23 +39,34 @@ class Contact(
             index += 1
         }
     }
+    fun forEach(string: CloseContact) {
+        var index = 0
+        for (i in 1..string.id.size) {
+            println(string.name[index])
+            index += 1
+        }
+    }
 }
+
+class CloseContact(
+    val id: List<Int>,
+    val name: List<String>,
+)
 
 fun main() {
     val contact = Contact(
         image = "MouseImage",
         firstName= "First Name",
         secondName= "Second Name",
-        iconButton = listOf("MassageIcon","PhoneCallingIcon","VideoCallingIcon","EmailIcon"),
-        nameButton = listOf("написать","вызов","видео","почта"),
-        phone = listOf("сотовый","домашний"),
-        phoneNumber = listOf("8 (999) 999-42-42","8 (999) 888-42-42"),
+        iconButton = listOf("MassageIcon", "PhoneCallingIcon", "VideoCallingIcon", "EmailIcon"),
+        nameButton = listOf("написать", "вызов", "видео", "почта"),
+        phone = listOf("сотовый", "домашний"),
+        phoneNumber = listOf("8 (999) 999-42-42", "8 (999) 888-42-42"),
         faceTime = "FaceTime",
         iCloud = "ICloud",
         emailICloud = "mail@mail.ru",
-        friendName = listOf("жена","подруга","друг"),
-        friendNickName = listOf("Катя","Маша","Женя"),
-        )
+        friendName = CloseContact(id = listOf(1,2,3), name = listOf("Petya", "Valya", "Shura"))
+    )
 
     contact.printUserInfo()
     println()
