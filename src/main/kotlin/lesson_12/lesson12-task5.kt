@@ -1,16 +1,14 @@
 package lesson_12
 
-import java.util.Random
-
 class Weather3(val temperatureOfDay: Int, val temperatureOfNight: Int, val isRain: Boolean, val pressure: Int)
 
 fun main() {
-    val random = Random()
+    val random = kotlin.random.Random
     val list = mutableListOf<Weather3>()
-    var medianTempOfDay: Long = 0
-    var medianTempOfNight: Long = 0
+    var medianTempOfDay = listOf<Int>()
+    var medianTempOfNight = listOf<Int>()
     var medianRain = 0
-    var medianPressure: Long = 0
+    var medianPressure = listOf<Int>()
 
     for (i in 1..10) {
         list += Weather3(temperatureOfDay = (10..29).random(),
@@ -27,9 +25,9 @@ fun main() {
         if (i.isRain) { medianRain += 1 }
     }
 
-    println("""Среднее значение температур днем:${medianTempOfDay / list.size}
-        |Среднее значение температур ночью: ${medianTempOfNight / list.size}
-        |Среднее атмосферное давление: ${medianPressure / list.size}
-        |Дождливых дней: ${medianRain}
+    println("""Среднее значение температур днем:${ medianTempOfDay.average() }
+        |Среднее значение температур ночью: ${ medianTempOfNight.average() }
+        |Среднее атмосферное давление: ${ medianPressure.average() }
+        |Дождливых дней: ${ medianRain }
     """.trimMargin())
 }
