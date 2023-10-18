@@ -7,7 +7,9 @@ class Weather2(_temperatureOfDay: Int, _temperatureOfNight: Int, _isRain: Boolea
     val isRain = _isRain
     val pressure = _pressure
 
-    fun print() { println("температура днем: ${ temperatureOfDay }, температура ночью: ${ temperatureOfNight }, давление: ${ pressure }, дождь: ${ isRain }.") }
+    fun print() {
+        println("температура днем: ${temperatureOfDay}, температура ночью: ${temperatureOfNight}, давление: ${pressure}, дождь: ${isRain}.")
+    }
 }
 
 fun main() {
