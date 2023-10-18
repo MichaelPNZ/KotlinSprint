@@ -1,7 +1,7 @@
 package lesson_12
 
-class Weather3(var temperatureOfDay: Int, var temperatureOfNight: Int, var isRain: Boolean = false, var pressure: Int) {
-    fun print() { println("температура днем: ${temperatureOfDay}, температура ночью: ${temperatureOfNight}, давление: ${pressure}, дождь: ${isRain}.") }
+class Weather3(val temperatureOfDay: Int, val temperatureOfNight: Int, val isRain: Boolean = false, val pressure: Int) {
+    fun print() { println("температура днем: ${ temperatureOfDay }, температура ночью: ${ temperatureOfNight }, давление: ${ pressure }, дождь: ${ isRain }.") }
 }
 
 fun main() {
