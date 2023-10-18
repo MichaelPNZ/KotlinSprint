@@ -1,6 +1,6 @@
 package lesson_11
 
-class User (
+class User1 (
     val id: Int,
     val login: String,
     var password: String,
@@ -42,7 +42,7 @@ class User (
 }
 
 fun main() {
-    val user = User(
+    val user0 = User1(
         id = 1,
         login = "qwerty",
         password = "asdfg",
@@ -51,8 +51,8 @@ fun main() {
     )
 
     println("Заполни информацию о себе")
-    user.getInformationOnConsole()
-    user.changedPassword()
-    user.printInformation()
-    user.getStringForUser(user.bio ?: "")
+    user0.getInformationOnConsole()
+    user0.changedPassword()
+    user0.printInformation()
+    user0.getStringForUser(user0.bio ?: "")
 }

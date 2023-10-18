@@ -1,7 +1,7 @@
 package lesson_11
 
 
-class User (
+class User0 (
     val id: Int,
     val login: String,
     val password: String,
@@ -9,27 +9,27 @@ class User (
 )
 
 fun main() {
-    val userOne = User(
+    val user0One = User0(
         id = 1,
         login = "qwerty",
         password = "asdfg",
         email = "zxcvb@gmail.com",
     )
 
-    val userTwo = User(
+    val user0Two = User0(
         id = 2,
         login = "uiopsgs",
         password = "hjklffhd",
         email = "nmvbcn@gmail.com",
     )
-    println("""${userOne.id}
-        |${userOne.login}
-        |${userOne.password}
-        |${userOne.email}""".trimMargin())
+    println("""${user0One.id}
+        |${user0One.login}
+        |${user0One.password}
+        |${user0One.email}""".trimMargin())
 
     println()
-    println("""${userTwo.id}
-        |${userTwo.login}
-        |${userTwo.password}
-        |${userTwo.email}""".trimMargin())
+    println("""${user0Two.id}
+        |${user0Two.login}
+        |${user0Two.password}
+        |${user0Two.email}""".trimMargin())
 }
