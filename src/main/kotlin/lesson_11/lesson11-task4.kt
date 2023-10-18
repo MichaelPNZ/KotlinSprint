@@ -18,18 +18,26 @@ class Contact(
         println("${firstName} ${secondName}")
     }
 
-    fun printButtons() { forEach(iconButton, nameButton) }
+    fun printButtons() {
+        forEach(iconButton, nameButton)
+    }
 
-    fun printPhoneNumber() { forEach(phone, phoneNumber) }
+    fun printPhoneNumber() {
+        forEach(phone, phoneNumber)
+    }
 
-    fun printFaceTime() { println("${faceTime} ${iconButton[2]} ${iconButton[1]}") }
+    fun printFaceTime() {
+        println("${faceTime} ${iconButton[2]} ${iconButton[1]}")
+    }
 
     fun printICloud() {
         println(iCloud)
         println(emailICloud)
     }
 
-    fun printFriends() { forEach(friendName) }
+    fun printFriends() {
+        forEach(friendName)
+    }
 
     fun forEach(string: List<String>, string2: List<String>) {
         var index = 0
@@ -39,6 +47,7 @@ class Contact(
             index += 1
         }
     }
+
     fun forEach(string: CloseContact) {
         var index = 0
         for (i in 1..string.id.size) {
@@ -56,8 +65,8 @@ class CloseContact(
 fun main() {
     val contact = Contact(
         image = "MouseImage",
-        firstName= "First Name",
-        secondName= "Second Name",
+        firstName = "First Name",
+        secondName = "Second Name",
         iconButton = listOf("MassageIcon", "PhoneCallingIcon", "VideoCallingIcon", "EmailIcon"),
         nameButton = listOf("написать", "вызов", "видео", "почта"),
         phone = listOf("сотовый", "домашний"),
@@ -65,7 +74,7 @@ fun main() {
         faceTime = "FaceTime",
         iCloud = "ICloud",
         emailICloud = "mail@mail.ru",
-        friendName = CloseContact(id = listOf(1,2,3), name = listOf("Petya", "Valya", "Shura"))
+        friendName = CloseContact(id = listOf(1, 2, 3), name = listOf("Petya", "Valya", "Shura"))
     )
 
     contact.printUserInfo()
