@@ -1,7 +1,7 @@
 package lesson_13
 
 class PhoneBook4(val name: String, val phoneNumber: Long?, val company: String?) {
-    fun print() { println("-Имя: ${name}\n-Номер: ${phoneNumber}\n-Компания: ${company}") }
+    fun print() { println("-Имя: ${ name }\n-Номер: ${ phoneNumber }\n-Компания: ${ company }") }
 }
 
 fun main() {
