@@ -4,7 +4,7 @@ class Room(
     val id: Int,
     val coverRoom: String,
     val nameRoom: String,
-    val participantList: List<String>,
+    val participantList: Member,
     val userName: String,
     var status: String,
 ) {
@@ -19,21 +19,27 @@ class Room(
             |${id}
             |${coverRoom}
             |${nameRoom}
-            |${participantList}
+            |${participantList.list}
             |${userName}
             |${status}
             |-------------------
         """.trimIndent())
     }
+
+    class Member(val list: List<String>) {}
 }
 
 fun main() {
+    val memberOne = Room.Member(listOf("Petya", "Kolya"))
+    val memberTwo = Room.Member(listOf("Katya", "Kolya"))
+    val memberThree = Room.Member(listOf("Petya", "Kolya", "Tolya"))
+
     val room1 = Room(
         id = 1,
         coverRoom = "Картанка бабочки",
         nameRoom = "бабочки",
-        participantList = arrayListOf("Petya", "Kolya"),
-        userName = "Petya",
+        participantList = memberOne ,
+        userName = memberOne.list[0],
         status = "пользователь заглушен"
     )
 
@@ -41,8 +47,8 @@ fun main() {
         id = 2,
         coverRoom = "Картанка колеса",
         nameRoom = "обсуждение колес",
-        participantList = arrayListOf("Petya", "Kolya"),
-        userName = "Kolya",
+        participantList = memberTwo,
+        userName = memberTwo.list[1],
         status = "разговаривает"
     )
 
@@ -50,8 +56,8 @@ fun main() {
         id = 3,
         coverRoom = "Картанка монитора",
         nameRoom = "мониторы тут",
-        participantList = arrayListOf("Petya", "Kolya", "Tolya"),
-        userName = "Tolya",
+        participantList = memberThree,
+        userName = memberThree.list[2],
         status = "микрофон выключен"
     )
 
