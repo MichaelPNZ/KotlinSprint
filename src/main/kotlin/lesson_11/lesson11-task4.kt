@@ -11,7 +11,7 @@ class Contact(
     val faceTime: String,
     val iCloud: String,
     val emailICloud: String,
-    val friendName: CloseContact,
+    val closeContact: List<CloseContact>,
 ) {
     fun printUserInfo() {
         println(image)
@@ -36,7 +36,7 @@ class Contact(
     }
 
     fun printFriends() {
-        forEach(friendName)
+        closeContact.forEach { println("${it.id}-${it.name}") }
     }
 
     fun forEach(string: List<String>, string2: List<String>) {
@@ -47,22 +47,18 @@ class Contact(
             index += 1
         }
     }
-
-    fun forEach(string: CloseContact) {
-        var index = 0
-        for (i in 1..string.id.size) {
-            println(string.name[index])
-            index += 1
-        }
-    }
 }
 
 class CloseContact(
-    val id: List<Int>,
-    val name: List<String>,
+    val id: Int,
+    val name: String,
 )
 
 fun main() {
+    val closeContactOne = CloseContact(1, "Petya")
+    val closeContactTwo = CloseContact(2, "Kolya")
+    val closeContactThree = CloseContact(3, "Vova")
+
     val contact = Contact(
         image = "MouseImage",
         firstName = "First Name",
@@ -74,7 +70,7 @@ fun main() {
         faceTime = "FaceTime",
         iCloud = "ICloud",
         emailICloud = "mail@mail.ru",
-        friendName = CloseContact(id = listOf(1, 2, 3), name = listOf("Petya", "Valya", "Shura"))
+        closeContact = listOf(closeContactOne, closeContactTwo, closeContactThree)
     )
 
     contact.printUserInfo()
