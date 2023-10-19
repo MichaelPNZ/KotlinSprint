@@ -4,7 +4,7 @@ class Room(
     val id: Int,
     val coverRoom: String,
     val nameRoom: String,
-    val participantList: Member,
+    val participantList: List<Member>,
     val userName: String,
     var status: String,
 ) {
@@ -13,33 +13,39 @@ class Room(
         println(userName)
     }
 
+    fun printContact() {
+        println("Список контактов:")
+        participantList.forEach { println(it.user) }
+    }
+
     fun testPrint() {
-        println("""
+        println(
+            """
+            |-------------------
             |Проверка информации
             |${id}
             |${coverRoom}
             |${nameRoom}
-            |${participantList.list}
             |${userName}
             |${status}
-            |-------------------
-        """.trimIndent())
+        """.trimIndent()
+        )
     }
-
-    class Member(val list: List<String>) {}
 }
 
+class Member(val user: String)
+
 fun main() {
-    val memberOne = Room.Member(listOf("Petya", "Kolya"))
-    val memberTwo = Room.Member(listOf("Katya", "Kolya"))
-    val memberThree = Room.Member(listOf("Petya", "Kolya", "Tolya"))
+    val memberOne = Member("Petya")
+    val memberTwo = Member("Katya")
+    val memberThree = Member("Tolya")
 
     val room1 = Room(
         id = 1,
         coverRoom = "Картанка бабочки",
         nameRoom = "бабочки",
-        participantList = memberOne ,
-        userName = memberOne.list[0],
+        participantList = listOf(memberOne, memberTwo, memberThree),
+        userName = memberOne.user,
         status = "пользователь заглушен"
     )
 
@@ -47,8 +53,8 @@ fun main() {
         id = 2,
         coverRoom = "Картанка колеса",
         nameRoom = "обсуждение колес",
-        participantList = memberTwo,
-        userName = memberTwo.list[1],
+        participantList = listOf(memberOne, memberTwo),
+        userName = memberTwo.user,
         status = "разговаривает"
     )
 
@@ -56,15 +62,18 @@ fun main() {
         id = 3,
         coverRoom = "Картанка монитора",
         nameRoom = "мониторы тут",
-        participantList = memberThree,
-        userName = memberThree.list[2],
+        participantList = listOf(memberTwo, memberThree),
+        userName = memberThree.user,
         status = "микрофон выключен"
     )
 
     room1.testPrint()
+    room1.printContact()
     room1.longPressed()
     room2.testPrint()
+    room2.printContact()
     room2.longPressed()
     room3.testPrint()
+    room3.printContact()
     room3.longPressed()
 }
