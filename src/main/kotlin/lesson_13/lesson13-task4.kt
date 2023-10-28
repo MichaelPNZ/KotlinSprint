@@ -1,7 +1,7 @@
 package lesson_13
 
-class PhoneBook4(val name: String, val phoneNumber: Long?, val company: String?) {
-    fun print() { println("-Имя: ${ name }\n-Номер: ${ phoneNumber }\n-Компания: ${ company }") }
+class PhoneBook4(val name: String, val phoneNumber: Long?, val company: String? = null) {
+    fun print() { println("-Имя: ${ name }\n-Номер: ${ phoneNumber }\n-Компания: ${ if (company?.isEmpty() == true) "<не указано>" else company }") }
 }
 
 fun main() {
@@ -15,7 +15,9 @@ fun main() {
         val phoneNumber = readln().toLongOrNull()
         println("Введите имя компании, если ходите пропустить, нажмите Enter")
         val company = readln()
-        listContact += PhoneBook4(name, phoneNumber, null ?: company)
+
+        if (phoneNumber != null) { listContact += PhoneBook4(name, phoneNumber, company) }
+
         println("Продолжаем? Дальше/Стоп")
         val userAnswer = readln()
 
