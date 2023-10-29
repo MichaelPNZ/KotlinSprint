@@ -1,28 +1,32 @@
 package lesson_15
 
-interface Movable {
+interface MovableFly {
 
     fun fly()
+
+}
+
+interface MovableSwim {
+
     fun swim()
 
 }
 
-abstract class Animal : Movable { abstract val name: String }
+abstract class Animal { abstract val name: String }
 
-class Crucian (override val name: String ) : Animal() {
+class Crucian (override val name: String ) : Animal(), MovableSwim {
 
-    override fun fly() { println("$name не может летать") }
     override fun swim() { println("$name может плавать") }
 
 }
-class Seagull (override val name: String ) : Animal() {
+class Seagull (override val name: String ) : Animal(), MovableSwim, MovableFly {
 
     override fun fly() { println("$name может летать") }
     override fun swim() { println("$name может плавать") }
 
 }
 
-class Duck (override val name: String ) : Animal() {
+class Duck (override val name: String ) : Animal(), MovableSwim, MovableFly {
 
     override fun fly() { println("$name может летать") }
     override fun swim() { println("$name может плавать") }
