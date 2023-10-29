@@ -14,21 +14,24 @@ interface MovableSwim {
 
 abstract class Animal { abstract val name: String }
 
-class Crucian (override val name: String ) : Animal(), MovableSwim {
+class Crucian(override val name: String) : Animal(), MovableSwim {
 
     override fun swim() { println("$name может плавать") }
 
 }
-class Seagull (override val name: String ) : Animal(), MovableSwim, MovableFly {
+
+class Seagull(override val name: String) : Animal(), MovableSwim, MovableFly {
 
     override fun fly() { println("$name может летать") }
+
     override fun swim() { println("$name может плавать") }
 
 }
 
-class Duck (override val name: String ) : Animal(), MovableSwim, MovableFly {
+class Duck(override val name: String) : Animal(), MovableSwim, MovableFly {
 
     override fun fly() { println("$name может летать") }
+
     override fun swim() { println("$name может плавать") }
 
 }
