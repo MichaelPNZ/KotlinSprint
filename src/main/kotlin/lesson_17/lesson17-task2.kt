@@ -1,8 +1,8 @@
 package lesson_17
 
-class Ship() {
+class Ship(name: String) {
 
-    var name = "Vol'niy"
+    var name = name
         set(value) {
             println("Изменять имя нельзя!")
         }
@@ -13,7 +13,7 @@ class Ship() {
 
 fun main() {
 
-    val ship = Ship()
+    val ship = Ship("Vol'niy")
     println(ship.name)
     ship.name = "sdad"
     println(ship.name)
