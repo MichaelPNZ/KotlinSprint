@@ -1,23 +1,20 @@
 package lesson_16
 
 
-class User() {
+class User(private val login: String, private val _password: String) {
 
-    private val login = "qwerty"
-    private val password = "zxcvb"
+    fun checkPassword(password: String) {
+        println("Логин: ${login}")
 
-    private fun getPassword() = password
-    fun getRelevancePassword(password: String) : Boolean {
-        println("Login: ${login}")
-        return password == getPassword()
+        if (password == _password) println("Пароль верный")
+        else println("Пароль не верный")
     }
 
 }
 
 fun main() {
 
-    val password = User()
-
-    println("Relevance password: ${password.getRelevancePassword("zxccb")}")
+    val password = User("qwerty", "zxcvb")
+    password.checkPassword("zxcvb")
 
 }
