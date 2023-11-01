@@ -1,14 +1,14 @@
 package lesson_17
 
-class Quiz() {
+class Quiz(question: String, answer: String) {
 
-    var question: String = ""
+    var question: String = question
         get() = field
-        set(value: String) {
+        set(value) {
             field = value
         }
-    var answer: String = ""
-        set(value: String) {
+    var answer: String = answer
+        set(value) {
             field = value
         }
 }
