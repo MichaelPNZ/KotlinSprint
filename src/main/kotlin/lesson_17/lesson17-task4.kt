@@ -1,10 +1,10 @@
 package lesson_17
 
-class PackagePoint(private val numberPackage: Int) {
+class PackagePoint(val numberPackage: Int, _currentLocation: String) {
 
     private var movementCount = 0
 
-    var currentLocation = ""
+    var currentLocation = _currentLocation
         set(value) {
             field = value
             movementCount += 1
@@ -16,10 +16,11 @@ class PackagePoint(private val numberPackage: Int) {
 
 fun main() {
 
-    val packageOne = PackagePoint(122)
-    packageOne.currentLocation = "asasd"
-    packageOne.currentLocation = "asasd"
-    packageOne.currentLocation = "qefq"
-    packageOne.currentLocation = "dbdb"
+    val packageOne = PackagePoint(122, "Moscow")
+    println("Посылка №${packageOne.numberPackage}, текущая локация ${packageOne.currentLocation}.")
+    packageOne.currentLocation = "Rostov"
+    packageOne.currentLocation = "Penza"
+    packageOne.currentLocation = "Ufa"
+    packageOne.currentLocation = "Omsk"
 
 }
