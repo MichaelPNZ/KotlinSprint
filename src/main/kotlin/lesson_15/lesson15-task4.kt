@@ -2,44 +2,49 @@ package lesson_15
 
 interface SearchComponents {
 
-    fun search(name: String, components: List<Components>) {
-        println("Найти: ${name}")
-        println("Выполняется поиск")
-        var countItem = 0
-
-        for (component in components) {
-
-            if (component.name == name) println("${name} найден, количество ${component.count}")
-            else {
-                countItem += 1
-                if (components.size == countItem) println("${name} не найден.")
-            }
-        }
-    }
+    fun search(name: String)
 }
 
-abstract class Store {
+abstract class Product {
     abstract val name: String
     abstract val count: Int
 }
 
-class Tools(
+class Tool(
     override val name: String,
     override val count: Int,
-) : Store(), SearchComponents
+    val components: List<Component>,
+) : Product(), SearchComponents {
 
-class Components (
+    override fun search(name: String, ) {
+        println("Найти: ${name}")
+        println("Выполняется поиск")
+
+        for (component in components) {
+
+            if (component.name == name) {
+                println("${name} найден, количество ${component.count}")
+                return
+            }
+
+        }
+
+        println("${name} не найден.")
+    }
+}
+
+class Component (
     override val name: String,
     override val count: Int,
-) : Store()
+) : Product()
 
 fun main() {
-    val componentsOne = Components("afaf", 5)
-    val componentsTwo = Components("fgher", 3)
-    val componentsThree = Components("fghfgh", 66)
-    val componentsFour = Components("tjjtj", 34)
+    val componentsOne = Component("afaf", 5)
+    val componentsTwo = Component("fgher", 3)
+    val componentsThree = Component("fghfgh", 66)
+    val componentsFour = Component("tjjtj", 34)
 
-    val toolOne = Tools("Drill", 2)
+    val toolOne = Tool("Drill", 2, listOf(componentsOne, componentsTwo, componentsThree, componentsFour))
 
-    toolOne.search("tjjtj", listOf(componentsOne, componentsTwo, componentsThree, componentsFour))
+    toolOne.search("tjjtj")
 }
