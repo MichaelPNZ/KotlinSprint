@@ -1,10 +1,9 @@
 package lesson_15
 
-abstract class Forum {
+abstract class User {
     abstract val name: String
-    abstract val message: String
 
-    fun sendMessage() { println("${name}: ${message}") }
+    abstract fun sendMessage(message: String)
 
     fun readMessage() {
         println("Полозователь ${name} прочел сообщение.")
@@ -13,34 +12,52 @@ abstract class Forum {
 
 class Member(
     override val name: String,
-    override val message: String,
-) : Forum()
+) : User() {
+
+    var currentMessage: String = ""
+
+    override fun sendMessage(message: String) {
+        currentMessage = message
+        println("${name}: ${message}")
+    }
+
+}
 
 class Administrator(
     override val name: String,
-    override val message: String,
-) : Forum() {
+) : User() {
 
-    fun deletedMessage() { println("Сообщение <${message}> удалено") }
+    var currentMessage: String = ""
 
-    fun deletedMember() { println("Пользователь <${name}> удален") }
+    fun deletedMessage(message: String) {
+        println("Сообщение <${message}> удалено")
+    }
+
+    fun deletedMember(name: String) {
+        println("Пользователь <${name}> удален")
+    }
+
+    override fun sendMessage(message: String) {
+        currentMessage = message
+        println("${name}: ${message}")
+    }
 
 }
 
 fun main() {
-    val memberOne = Member("Petr", "Hello!")
-    val memberTwo = Member("Yana", "Hello!! =)")
-    val memberThree = Member("Olya", "Hello!!!!!")
+    val memberOne = Member("Petr")
+    val memberTwo = Member("Yana")
+    val memberThree = Member("Olya")
 
-    val administratorOne = Administrator("Ivan", "Hi!")
-    val administratorTwo = Administrator("Dima", "Hi!!!")
-    val administratorThree = Administrator("Katya", "Hi!!!!!!")
+    val administratorOne = Administrator("Ivan")
+    val administratorTwo = Administrator("Dima")
+    val administratorThree = Administrator("Katya")
 
-    memberOne.sendMessage()
+    memberOne.sendMessage("Hello!")
     memberTwo.readMessage()
     memberThree.readMessage()
 
-    administratorOne.sendMessage()
-    administratorTwo.deletedMember()
-    administratorThree.deletedMessage()
+    administratorOne.sendMessage("Hi!")
+    administratorTwo.deletedMember(memberOne.name)
+    administratorThree.deletedMessage(administratorOne.currentMessage)
 }
