@@ -8,10 +8,14 @@ class User(log: String, pass: String) {
             println("Вы успешно поменяли логин.")
         }
 
+    val longPassword = pass.length
+
     var password: String = pass
-        get() = field.forEach { char -> print("*") }.toString()
+        get() {
+            field = "*".repeat(longPassword)
+            return println(field).toString()
+        }
         set(value) {
-            field = value
             println("Вы не можете изменить пароль")
         }
 
@@ -19,8 +23,8 @@ class User(log: String, pass: String) {
 
 fun main() {
 
-    val user = User("qwerty", "zxcvb")
+    val user = User("qwerty", "zxcvbyyyyyyyyyyy")
     user.login = "asas"
-    user.password = "hh"
+    user.password
 
 }
