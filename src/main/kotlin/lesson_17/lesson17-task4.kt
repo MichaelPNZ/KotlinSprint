@@ -7,7 +7,7 @@ class PackagePoint(val numberPackage: Int, _currentLocation: String) {
     var currentLocation = _currentLocation
         set(value) {
             field = value
-            movementCount += 1
+            movementCount++
             println("Посылка №${numberPackage}, текущая локация ${currentLocation}.")
             println("Перемещение №${movementCount}.")
         }
