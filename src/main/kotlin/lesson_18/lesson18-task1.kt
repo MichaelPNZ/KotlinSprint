@@ -2,41 +2,33 @@ package lesson_18
 
 open class CRM() {
 
-    open fun getOrder() = ""
+    open fun getOrder() {}
+    open fun getListOrders() {}
 
 }
 
-class OrderOne(
+class Order(
     private val numberOrder: Int,
     private val product: String,
+    private val productList: List<String>,
 ) : CRM() {
-    override fun getOrder(): String {
-        return "Заказ №$numberOrder, товар: $product"
+    override fun getOrder() {
+        return println("Заказ №$numberOrder, товар: $product")
     }
-}
 
-class OrderTwo(
-    private val numberOrder: Int,
-    private val product: List<String>,
-) : CRM() {
-    override fun getOrder(): String {
-        return "Заказ №$numberOrder. Заказаны следующие товары: $product"
+    override fun getListOrders() {
+        return println("Заказаны следующие товары: ${productList}")
     }
+
 }
 
 fun main() {
 
-    val orderFirst = OrderOne(1, "Phone")
-    val orderSecond = OrderTwo(2, listOf("Case", "cable", "sim"))
+    val orderFirst = Order(1, "Phone", listOf("Phone", "Case", "cable", "sim"))
+    val orderSecond = Order(2, "TV", listOf("TV", "TV_Box", "cable", "SoundBar"))
 
-    val list = arrayOf<CRM>(orderFirst, orderSecond)
-
-    showAllOrders(list)
+    orderFirst.getOrder()
+    orderSecond.getListOrders()
 
 }
 
-fun showAllOrders(orders: Array<CRM>) {
-    orders.forEach {
-        println(it.getOrder())
-    }
-}
