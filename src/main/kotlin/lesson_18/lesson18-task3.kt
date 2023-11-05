@@ -1,63 +1,37 @@
 package lesson_18
 
-open class Animal {
+abstract class Animal {
+    abstract val name: String
+    abstract val food: String
 
-    open fun play() = ""
-    open fun eat() = ""
-    open fun sleep() = ""
+    fun play(): String {
+        return "$name - играет"
+    }
+
+    fun eat(): String {
+        return "$name - ест $food"
+    }
+
+    fun sleep(): String {
+        return "$name - спит"
+    }
 
 }
 
 class Fox(
-    private val name: String,
-    private val food: String = "ягоды",
-) : Animal() {
-    override fun play(): String {
-        return "$name - играет"
-    }
-
-    override fun eat(): String {
-        return "$name - ест $food"
-    }
-
-    override fun sleep(): String {
-        return "$name - спит"
-    }
-}
+    override val name: String,
+    override val food: String = "ягоды",
+) : Animal()
 
 class Dog(
-    private val name: String,
-    private val food: String = "кости",
-) : Animal() {
-    override fun play(): String {
-        return "$name - играет"
-    }
-
-    override fun eat(): String {
-        return "$name - ест $food"
-    }
-
-    override fun sleep(): String {
-        return "$name - спит"
-    }
-}
+    override val name: String,
+    override val food: String = "кости",
+) : Animal()
 
 class Cat(
-    private val name: String,
-    private val food: String = "рыбу",
-) : Animal() {
-    override fun play(): String {
-        return "$name - играет"
-    }
-
-    override fun eat(): String {
-        return "$name - ест $food"
-    }
-
-    override fun sleep(): String {
-        return "$name - спит"
-    }
-}
+    override val name: String,
+    override val food: String = "рыбу",
+) : Animal()
 
 fun main() {
 
@@ -71,8 +45,8 @@ fun main() {
 
 }
 
-fun showAllAnimals(notes: Array<Animal>) {
-    notes.forEach {
+fun showAllAnimals(animals: Array<Animal>) {
+    animals.forEach {
         println(it.eat())
         println(it.play())
         println(it.sleep())
