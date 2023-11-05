@@ -2,9 +2,9 @@ package lesson_18
 
 import kotlin.math.pow
 
-open class Package {
+abstract class Package {
 
-    open fun getTypePackage(): String = ""
+    abstract fun areaCalculation(): String
 
 }
 
@@ -13,25 +13,25 @@ class RectangularPackage(
     private val width: Double,
     private val length: Double,
 ) : Package() {
-    override fun getTypePackage(): String {
+    override fun areaCalculation(): String {
         return "Площадь поверхности посылки: ${2 * ((height * width) + (height * length) + (width * length))}"
     }
 }
 
 class CubicPackage(
-    private val edgeLengths: Double,
+    private val edgeLength: Double,
 ) : Package() {
-    override fun getTypePackage(): String {
-        return "Площадь поверхности посылки: ${6 * edgeLengths.pow(2.0)}"
+    override fun areaCalculation(): String {
+        return "Площадь поверхности посылки: ${6 * edgeLength.pow(2.0)}"
     }
 }
 
 fun main() {
 
     val rectangularPackage = RectangularPackage(12.0, 3.9, 5.3)
-    val cubicPackage = CubicPackage(23.5)
+    val cubicPackage = CubicPackage(13.5)
 
-    println(rectangularPackage.getTypePackage())
-    println(cubicPackage.getTypePackage())
+    println(rectangularPackage.areaCalculation())
+    println(cubicPackage.areaCalculation())
 
 }
