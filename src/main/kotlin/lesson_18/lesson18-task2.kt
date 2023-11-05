@@ -1,34 +1,25 @@
 package lesson_18
 
-open class Dice {
+abstract class Dice {
+    abstract val countFaces: Int
 
-    open fun rollDice() = ""
+    fun rollDice(): String {
+        return "Выпало число: $countFaces"
+    }
 
 }
 
 class FourFaces(
-    private val countFaces: Int = (1..4).random(),
-) : Dice() {
-    override fun rollDice(): String {
-        return "Выпало число: $countFaces"
-    }
-}
+    override val countFaces: Int = (1..4).random(),
+) : Dice()
 
 class SixFaces(
-    private val countFaces: Int = (1..6).random(),
-) : Dice() {
-    override fun rollDice(): String {
-        return "Выпало число: $countFaces"
-    }
-}
+    override val countFaces: Int = (1..6).random(),
+) : Dice()
 
 class EightFaces(
-    private val countFaces: Int = (1..8).random(),
-) : Dice() {
-    override fun rollDice(): String {
-        return "Выпало число: $countFaces"
-    }
-}
+    override val countFaces: Int = (1..8).random(),
+) : Dice()
 
 fun main() {
 
@@ -38,12 +29,12 @@ fun main() {
 
     val list = arrayOf<Dice>(diceOne, diceTwo, diceThree)
 
-    showAllNotes(list)
+    showAllFaces(list)
 
 }
 
-fun showAllNotes(notes: Array<Dice>) {
-    notes.forEach {
+fun showAllFaces(faces: Array<Dice>) {
+    faces.forEach {
         println(it.rollDice())
     }
 }
