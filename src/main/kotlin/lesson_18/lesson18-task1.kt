@@ -3,32 +3,26 @@ package lesson_18
 open class CRM() {
 
     open fun getOrder() {}
-    open fun getListOrders() {}
 
 }
 
-class Order(
-    private val numberOrder: Int,
-    private val product: String,
-    private val productList: List<String>,
-) : CRM() {
-    override fun getOrder() {
+class Order : CRM() {
+    fun getOrder(numberOrder: Int, product: String) {
         return println("Заказ №$numberOrder, товар: $product")
     }
 
-    override fun getListOrders() {
-        return println("Заказаны следующие товары: ${productList}")
+    fun getOrder(numberOrder: Int, productList: List<String>) {
+        return println("Заказ №$numberOrder, заказаны следующие товары: ${productList}")
     }
 
 }
 
 fun main() {
 
-    val orderFirst = Order(1, "Phone", listOf("Phone", "Case", "cable", "sim"))
-    val orderSecond = Order(2, "TV", listOf("TV", "TV_Box", "cable", "SoundBar"))
+    val orderFirst = Order()
 
-    orderFirst.getOrder()
-    orderSecond.getListOrders()
+    orderFirst.getOrder(1, "Phone")
+    orderFirst.getOrder(2, listOf("Phone", "Case", "cable", "sim"))
 
 }
 
