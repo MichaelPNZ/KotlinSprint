@@ -11,10 +11,18 @@ fun authenticate(username: String, password: String): String? {
 }
 
 fun generateAccessToken(): String {
-    val charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    return (1..32)
-        .map { charset.random() }
-        .joinToString("")
+    val numberSet = 0..9
+    val charsetLowCase =  'a'..'z'
+    val charsetUpperCase = 'A'..'Z'
+    var token = ""
+
+    for (i in 1..11) {
+        token += numberSet.random()
+        token += charsetLowCase.random()
+        token += charsetUpperCase.random()
+    }
+
+    return token.dropLast(1)
 }
 
 fun getCartContents(accessToken: String): List<String>? {
