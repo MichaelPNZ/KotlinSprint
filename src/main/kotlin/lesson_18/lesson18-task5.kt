@@ -1,74 +1,54 @@
 package lesson_18
 
-abstract class Shape(val x: Float, val y: Float) {
-    abstract fun drawInt()
-    abstract fun drawFloat()
-}
+class Point(val x: Float, val y: Float)
 
-class Point(x: Float, y: Float) : Shape(x, y) {
+class Square(val sideLength: Float)
 
-    override fun drawInt() {
-        println("Рисуем точку с координатами x:${x.toInt()}, y:${y.toInt()}.")
+class Circle(val radius: Float)
+
+class Screen {
+
+    fun draw(x: Int, y: Int, pointInt: Point) {
+        println("Рисуем точку ${pointInt.x.toInt()}, ${pointInt.y.toInt()} с координатами x:$x, y:$y.")
     }
 
-    override fun drawFloat() {
-        println("Рисуем точку с координатами x:$x, y:$y.")
+    fun draw(x: Float, y: Float, point: Point) {
+        println("Рисуем точку ${point.x}, ${point.y} с координатами x:$x, y:$y.")
     }
 
-}
-
-class Square(x: Float, y: Float, val size: Float) : Shape(x, y) {
-
-    override fun drawInt() {
-        println("Рисуем квадрат с координатами x:${x.toInt()}, y:${y.toInt()}, длинной стороны: ${size.toInt()}.")
+    fun draw(x: Int, y: Int, squareInt: Square) {
+        println("Рисуем квадрат с координатами x:$x, y:$y, длинной стороны: ${squareInt.sideLength.toInt()}.")
     }
 
-    override fun drawFloat() {
-        println("Рисуем квадрат с координатами x:${x}, y:${y}, длинной стороны: $size.")
+    fun draw(x: Float, y: Float, square: Square) {
+        println("Рисуем квадрат с координатами x:$x, y:$y, длинной стороны: ${square.sideLength}.")
     }
 
-}
-
-class Circle(x: Float, y: Float, val radius: Float) : Shape(x, y) {
-
-    override fun drawInt() {
-        println("Рисуем круг с координатами x:${x.toInt()}, y:${y.toInt()} и радиусом: ${radius.toInt()}.")
+    fun draw(x: Int, y: Int, circleInt: Circle) {
+        println("Рисуем круг с координатами x:$x, y:$y и радиусом: ${circleInt.radius.toInt()}.")
     }
 
-    override fun drawFloat() {
-        println("Рисуем круг с координатами x:${x}, y:${y} и радиусом: $radius.")
-    }
-
-}
-
-class Screen() {
-
-    fun drawInt(shape: Shape) {
-        shape.drawInt()
-    }
-
-    fun drawFloat(shape: Shape) {
-        shape.drawFloat()
+    fun draw(x: Float, y: Float, circle: Circle) {
+        println("Рисуем круг с координатами x:$x, y:$y и радиусом: ${circle.radius}.")
     }
 
 }
 
 fun main() {
 
+    val point = Point(2.0F, 2.0F)
+    val square = Square(5.2F)
+    val circle = Circle(35.2F)
+
     val screen = Screen()
 
-    val point = Point(2.0F, 2.0F)
-    val square = Square(5.2F, 13.4F, 2.3F)
-    val circle = Circle(35.2F, 22.1F, 23.6F)
+    screen.draw(2, 4, point)
+    screen.draw(1.5f, 2.5f, point)
 
-    screen.drawInt(point)
-    screen.drawInt(square)
-    screen.drawInt(circle)
+    screen.draw(4, 7, square)
+    screen.draw(3.5f, 4.5f, square)
 
-    println()
-
-    screen.drawFloat(point)
-    screen.drawFloat(square)
-    screen.drawFloat(circle)
+    screen.draw(55, 1, circle)
+    screen.draw(5.5f, 6.5f, circle)
 
 }
