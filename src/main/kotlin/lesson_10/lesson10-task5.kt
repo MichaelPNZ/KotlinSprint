@@ -15,14 +15,19 @@ fun generateAccessToken(): String {
     val charsetLowCase =  'a'..'z'
     val charsetUpperCase = 'A'..'Z'
     var token = ""
+    var set = ""
 
-    for (i in 1..11) {
-        token += numberSet.random()
-        token += charsetLowCase.random()
-        token += charsetUpperCase.random()
+    for (i in 1..20) {
+        set += numberSet.random()
+        set += charsetLowCase.random()
+        set += charsetUpperCase.random()
     }
 
-    return token.dropLast(1)
+    for (i in 1..32) {
+        token += set.random()
+    }
+
+    return token
 }
 
 fun getCartContents(accessToken: String): List<String>? {
