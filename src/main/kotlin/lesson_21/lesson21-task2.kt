@@ -1,20 +1,13 @@
 package lesson_21
 
 
-fun Collection<Int>.evenNumbersSum(list: List<Int>) {
-    var sum = 0
-    list.forEach { i ->
-        if (i % 2 == 0) {
-            sum += i
-        }
-    }
-    println(sum)
+fun Collection<Int>.evenNumbersSum() : Int {
+    return this.filter { it % 2 == 0 }.sum()
 }
 
 fun main() {
 
-    val listNumber = listOf<Int>()
-
-    listNumber.evenNumbersSum(listOf(1, 2, 3, 4, 5, 6, 7))
+    val listNumber = listOf(1, 2, 3, 4, 5, 6, 7)
+    println(listNumber.evenNumbersSum())
 
 }
