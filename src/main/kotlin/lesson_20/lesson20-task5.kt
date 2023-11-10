@@ -1,12 +1,14 @@
 package lesson_20
 
-class Robot(val listString: List<String>) {
+class Robot {
+
+    val string = listOf("Hello!", "Bay", "Yes", "No")
 
     fun say(): String {
-        return listString.shuffled().first()
+        return string.shuffled().first()
     }
 
-    val invertString: () -> Unit = {
+    val setModifier: () -> Unit = {
         println(say().reversed())
     }
 
@@ -14,9 +16,9 @@ class Robot(val listString: List<String>) {
 
 fun main() {
 
-    val string = Robot(listOf("Hello!", "Bay", "Yes", "No"))
+    val robot = Robot()
 
-    println(string.say())
-    string.invertString()
+    println(robot.say())
+    robot.setModifier()
 
 }
