@@ -15,16 +15,10 @@ fun generateAccessToken(): String {
     val charsetLowCase =  'a'..'z'
     val charsetUpperCase = 'A'..'Z'
     var token = ""
-    var set = ""
-
-    for (i in 1..20) {
-        set += numberSet.random()
-        set += charsetLowCase.random()
-        set += charsetUpperCase.random()
-    }
+    val allChars = numberSet + charsetLowCase + charsetUpperCase
 
     for (i in 1..32) {
-        token += set.random()
+        token += allChars.random()
     }
 
     return token
