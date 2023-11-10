@@ -14,6 +14,7 @@ fun File.addText(newText: String) {
 fun main() {
 
     val newWordsFile = File("newWords.txt")
+    newWordsFile.createNewFile()
 
     newWordsFile.addText("ooooo")
 
