@@ -1,27 +1,14 @@
 package lesson_21
 
 
-interface Map {}
-
-fun Map.maxCategory(): String {
-    val person = Person()
-    val maxValueExp = person.skill.values.max()
-    var maxSkillName = ""
-
-    for (i in person.skill) {
-        if (i.value == maxValueExp) { maxSkillName = i.key }
-    }
-
-    return maxSkillName
-}
-
-class Person : Map {
-    val skill = mapOf("aaaaa" to 10, "ppppp" to 20, "ssssss" to 20)
+fun Map<String, Int>.maxCategory(): String? {
+    val maxValueName = this.maxByOrNull { entry -> entry.value }
+    return maxValueName?.key
 }
 
 fun main() {
 
-    val skill = Person()
+    val skill = mapOf("aaaaa" to 10, "ppppp" to 20, "ssssss" to 20)
     println(skill.maxCategory())
 
 }
