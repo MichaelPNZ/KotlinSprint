@@ -1,15 +1,16 @@
 package lesson_22
 
 
-class ViewMadel(private val mainScreenState: MainScreenState) {
+class ViewMadel(data: String) {
 
-    data class MainScreenState(
+    private val mainScreenState = MainScreenState(data)
+
+    private data class MainScreenState(
         val data: String,
         val isLoading: Boolean = false,
     )
 
     fun loadData() {
-
         println("отсутствие данных")
         if (mainScreenState.data.isNotEmpty()) {
             println("загрузка данных")
@@ -17,16 +18,13 @@ class ViewMadel(private val mainScreenState: MainScreenState) {
             println(buffer)
             println("наличие загруженных данных")
         }
-
     }
 
 }
 
 fun main() {
 
-    val data = ViewMadel.MainScreenState("asdad")
-    val viewState = ViewMadel(data)
-
+    val viewState = ViewMadel("asdad")
     viewState.loadData()
 
 }
