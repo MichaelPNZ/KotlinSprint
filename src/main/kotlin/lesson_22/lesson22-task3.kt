@@ -9,10 +9,7 @@ data class Book(
 fun main() {
 
     val book1 = Book("Harry Potter", "J. K. Rowling", 500)
-
-    val bookName = book1.component1()
-    val bookAuthor = book1.component2()
-    val pageCount = book1.component3()
+    val (bookName, bookAuthor, pageCount) = book1
 
     println("$bookName, $bookAuthor, $pageCount")
 
